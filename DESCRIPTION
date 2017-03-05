@@ -1,11 +1,16 @@
 Package: rdplace
 Type: Package
-Title: What the Package Does (Title Case)
+Title: R Interface to D-Place)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Matthew Gwynfryn Thomas
+Maintainer: mgt <mgt@matthewgthomas.co.uk>
+Description: An R interface to the anthropology database D-Place (d-place.org).
+URL: http://github.com/matthewgthomas/rdplace
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    httr,
+    jsonlite,
+    dplyr
+RoxygenNote: 6.0.1
