@@ -67,7 +67,7 @@ head(societies)
 2. Get data about an individual society:
 
 ```r
-saami = dplace_society("Cg4")
+saami <- dplace_society("Cg4")
 head(saami)
 # $soc_name
 # [1] "Sami (Cg4)"
@@ -91,8 +91,8 @@ head(saami)
 3. Fetch cultural codes and variables:
 
 ```r
-codes = dplace_codes()
-vars = dplace_variables()
+codes <- dplace_codes()
+vars <- dplace_variables()
 ```
 
 If you use this package to download a lot of data from D-Place, please remember to [scrape responsibly](https://news.ycombinator.com/item?id=12345693)!
