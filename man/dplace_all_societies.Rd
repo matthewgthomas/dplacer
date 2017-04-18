@@ -10,7 +10,7 @@ dplace_all_societies(path = "societies")
 \item{path}{character, address in the API to call}
 }
 \value{
-data.frame
+data.frame containing all societies in D-Place
 }
 \description{
 Get data about all societies listed in D-Place (d-place.org)

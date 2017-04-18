@@ -1,20 +1,10 @@
-# base uri
-base_uri <- function()
-  "https://d-place.org"
-
-# rest path
-rest_path <- function()
-  "api/v1"
-
-# set user agent
-ua <- httr::user_agent("https://github.com/matthewgthomas")
-
 #' Get data about all societies listed in D-Place
 #'
 #' @description Get data about all societies listed in D-Place (d-place.org)
 #'
 #' @param path character, address in the API to call
-#' @return data.frame
+#' @return data.frame containing all societies in D-Place
+#'
 #' @export
 dplace_all_societies <- function(path = "societies") {
   if (is.null(path))
@@ -51,20 +41,9 @@ dplace_all_societies <- function(path = "societies") {
 #' @param query character, which page to return. Format: "page=X"
 #' @return data.frame
 #'
-#' @export
 dplace_all_societies_ <- function(path = NULL, query = NULL) {
-  if (is.null(path))
-    stop("Nothing to search")
-
-  req = httr::GET( httr::modify_url( base_uri(), path = path, query = query ), ua )
-
-  # load json into r
-  out <- httr::content(req, "text")
-  doc <- jsonlite::fromJSON(out, flatten=T, simplifyDataFrame = T)
-
-  if (doc$count == 0)
-    stop("Nothing found")
-
+  # get from the current path and query
+  doc = dplace_getter(path, query)
   results = doc$results
 
   # location coordinates need to be split into two columns
@@ -89,8 +68,3 @@ dplace_all_societies_ <- function(path = NULL, query = NULL) {
 
   list(next_page = doc$`next`, results = results)
 }
-
-
-# path = paste(rest_path(), data_src, ext_id, req_method,
-#              "json", sep = "/")
-

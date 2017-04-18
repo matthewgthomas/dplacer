@@ -1,11 +1,11 @@
-Package: rdplace
+Package: dplacer
 Type: Package
 Title: R Interface to D-Place)
-Version: 0.1.0
+Version: 0.2.0
 Author: Matthew Gwynfryn Thomas
 Maintainer: mgt <mgt@matthewgthomas.co.uk>
 Description: An R interface to the anthropology database D-Place (d-place.org).
-URL: http://github.com/matthewgthomas/rdplace
+URL: http://github.com/matthewgthomas/dplacer
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

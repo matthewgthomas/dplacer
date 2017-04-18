@@ -1,20 +1,22 @@
 # R Interface to D-Place
 
-An R interface for getting data from the anthropology database, [D-Place](https://d-place.org).
+An R interface to the anthropology database, [D-Place](https://d-place.org).
 
 ## Installation
 To install from this repository:
 
 ```r
 require(devtools)
-install_github("matthewgthomas/rdplace")
+install_github("matthewgthomas/dplacer")
+library(dplacer)
 ```
 
 ## Usage
-At the moment, the package only fetches details about the full set of societies in D-Place. 
+At the moment, the package can do the following:
+
+1. Fetch details about the full set of societies in D-Place:
 
 ```r
-library(rdplace)
 societies <- dplace_all_societies()
 head(societies)
 
@@ -61,5 +63,38 @@ head(societies)
 # 5                           35.00                            9.00
 # 6                              NA                              NA
 ```
+
+2. Get data about an individual society:
+
+```r
+saami = dplace_society("Cg4")
+head(saami)
+# $soc_name
+# [1] "Sami (Cg4)"
+# 
+# $soc_source
+# [1] "Ethnographic Atlas"
+# 
+# $original_name
+# [1] "Lapps (Cg4)"
+# 
+# $lang_family
+# [1] "Uralic"
+# 
+# $lang_dialect
+# [1] "Lule Sami "
+# 
+# $alt_names
+# [1] "Lapps"
+```
+
+3. Fetch cultural codes and variables:
+
+```r
+codes = dplace_codes()
+vars = dplace_variables()
+```
+
+If you use this package to download a lot of data from D-Place, please remember to [scrape responsibly](https://news.ycombinator.com/item?id=12345693)!
 
 More features to come!
